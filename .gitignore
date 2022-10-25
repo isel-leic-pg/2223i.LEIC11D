@@ -23,4 +23,8 @@
 hs_err_pid*
 
 META-INF/
+.gradle
+build/
+.idea/
+gradle/
 
