@@ -2,6 +2,9 @@ import pt.isel.canvas.*
 
 private const val STONE_SIZE = 100
 
+/**
+ * Draws a stone in a red circle centered in the window.
+ */
 fun main() {
     onStart {
         val arena = Canvas(800,400,WHITE)

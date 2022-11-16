@@ -1,6 +1,9 @@
 import pt.isel.canvas.*
 
-
+/**
+ * Displays the stone at the clicked location.
+ * The stone disappears after a while.
+ */
 fun main() {
     onStart {
         val arena = Canvas(width = 800, height = 400, background = WHITE)
