@@ -31,3 +31,5 @@ fun Game.update(time: Int): Game = copy(
     stone = stone.timePass(time),
     monsters = monsters.map { it.randomMove(dim.width, dim.height)}
 )
+
+fun Game.isOver(): Boolean = monsters.all { it.dead }
