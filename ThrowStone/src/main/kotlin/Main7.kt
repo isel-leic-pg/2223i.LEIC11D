@@ -19,8 +19,25 @@ fun main() {
             game = game.update(UPDATE_TIME)
             arena.drawGame(game)
         }
+        arena.onKeyPressed { k ->
+            println(k.text)
+            val dir = k.toDir()
+            dir.let { println(it) }
+        }
     }
     onFinish {
         println("Bye")
     }
+}
+
+fun KeyEvent.toDir(): Direction? = when(code) {
+    DOWN_CODE -> Direction.DOWN
+    UP_CODE -> Direction.UP
+    LEFT_CODE -> Direction.LEFT
+    RIGHT_CODE -> Direction.RIGHT
+    else -> null
+}
+
+enum class Direction {
+    UP, DOWN, LEFT, RIGHT
 }

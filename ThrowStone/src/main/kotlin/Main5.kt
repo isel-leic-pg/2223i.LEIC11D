@@ -12,18 +12,17 @@ fun main() {
             createMonster(arena.width, arena.height)
         }
         monsters.forEach { it.drawIn(arena) }
-        var stone = Stone( center = Point(0,0) )
+        var stone: Stone? = null
         arena.onMouseDown { me: MouseEvent ->
             stone = createStone(me.x,me.y)
             monsters = monsters.map { it.touch( Point(me.x,me.y) ) }
         }
         arena.onTimeProgress(UPDATE_TIME) {
             arena.erase()
-            stone = stone.timePass(UPDATE_TIME)
+            stone = stone?.timePass(UPDATE_TIME)
             monsters = monsters.map { it.randomMove(arena.width, arena.height)}
             monsters.forEach { it.drawIn(arena) }
-            if (stone.time>0)
-                arena.drawStone(stone)
+            arena.drawStone(stone)
         }
     }
     onFinish { }
